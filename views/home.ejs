@@ -2,6 +2,29 @@
 
 
     <div id="start" class="container-fluid">
+        <!--Songs -->
+        <div class="swiper mySwiper Recommended">
+            <div class="col-lg-6">
+                <h3 class="mb-3">Songs</h3>
+            </div>
+            <div class="swiper-wrapper" id="recommend_id">
+                <div class="swiper-slide Recommended-slide">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" style="height: 12rem;" src="../img/IMG20220519111015.jpg"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <br>
+        <hr><br>
 
 
         <!-- TOP rock songs -->
@@ -83,31 +106,6 @@
 
 
 
-        <!-- Recommended songs -->
-        <div class="swiper mySwiper Recommended">
-            <div class="col-lg-6">
-                <h3 class="mb-3">Recommended songs</h3>
-            </div>
-            <div class="swiper-wrapper" id="recommend_id">
-                <div class="swiper-slide Recommended-slide">
-                    <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" style="height: 12rem;" src="../img/IMG20220519111015.jpg"
-                            alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
-
-        <br>
-        <hr><br>
-
-
         <!-- Artist playlist here -->
 
         <div id="making-slider">
@@ -131,7 +129,7 @@
                                 <h2 class="name">Guru Randhawa</h2>
                                 <p class="description"> Guru Randhawa, is a Punjabi pop singer and a songwriter. He shot to fame with his song 'High Rated Gabru..</p>
 
-                                <button class="button">View playlist</button>
+                                <a href="/seeall/guru_r"><button class="button" >View playlist</button></a>
                             </div>
                         </div>
 
@@ -149,7 +147,7 @@
                                 <p class="description">The lorem text the section that contains header with having open
                                     functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
 
-                                <button class="button">View playlist</button>
+                                <a  href="/seeall/hardy_sandhu"><button class="button">View playlist</button></a>
                             </div>
                         </div>
                         
@@ -166,7 +164,7 @@
                                 <h2 class="name">Jass Manak</h2>
                                 <p class="description">Jaspreet Singh Manak is an Indian singer-songwriter. He is known predominantly for the songs Prada, Suit Punjabi, Lehanga, Viah and Boss</p>
 
-                                <button class="button">View playlist</button>
+                                <a href="/seeall/jmanak_f"><button class="button">View playlist</button></a>
                             </div>
                         </div>
 
@@ -184,7 +182,7 @@
                                 <p class="description">The lorem text the section that contains header with having open
                                     functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
 
-                                <button class="button">View playlist</button>
+                                    <a href="/seeall/swift"><button class="button">View playlist</button></a>
                             </div>
                         </div>
                         
@@ -247,6 +245,7 @@
     <script src="../js/home/artist.js"></script>
     <script src="../js/home/artist_display.js"></script>
 
+    <!-- <script>console.log(title)</script> -->
     <!-- home -->
     <script src="../js/home/home.js"></script>
 

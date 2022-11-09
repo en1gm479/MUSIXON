@@ -54,10 +54,18 @@ app.get('/queue',(req,res)=>{
     })
 })
 
-app.get('/seeall',(req,res)=>{
+app.get('/seeall/:id',(req,res)=>{
     res.render('seeall',{
         isAuth:false,
-        title:"All songs |"
+        title:"All songs |",
+        id: req.params.id
+    })
+})
+
+app.get('/play_song/:id',(req,res)=>{
+    res.render('footer',{
+        isAuth:false,
+        id: req.params.id
     })
 })
 

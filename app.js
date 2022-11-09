@@ -54,6 +54,13 @@ app.get('/queue',(req,res)=>{
     })
 })
 
+app.get('/dashboard',(req,res)=>{
+    res.render('dashboard',{
+        isAuth:true,
+        title:"queue |"
+    })
+})
+
 app.get('/seeall/:id',(req,res)=>{
     res.render('seeall',{
         isAuth:false,

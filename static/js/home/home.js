@@ -145,7 +145,7 @@ async function recommend(){
          ).then((data)=>{
            console.log(data.data);
             for(let i=0;i<16;i++){
-                 let x =Math.floor((Math.random() * 90));
+                 let x =Math.floor((Math.random() * 290));
                       let item = `
                       <div class="swiper-slide Recommended-slide">
                       <div class="card" style="width: 18rem;">

@@ -1,7 +1,7 @@
 var swiper = new Swiper(".slide-content-recommend", {
     slidesPerView: 3,
     spaceBetween: 25,
-    slidesPerGroup:2,
+    slidesPerGroup:1,
     loop: true,
     centerSlide: 'true',
     fade: 'true',

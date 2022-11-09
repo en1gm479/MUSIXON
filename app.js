@@ -16,9 +16,9 @@ app.set('view engine', 'ejs');
 
 //connecting to mongodb
 const dburl = process.env.MongoURI;
-mongoose.connect(dburl, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('DB connected successfully...'))
-    .catch((err) => console.log('DB could not connect!\nError: ',err));
+// mongoose.connect(dburl, { useNewUrlParser: true, useUnifiedTopology: true })
+//     .then(() => console.log('DB connected successfully...'))
+//     .catch((err) => console.log('DB could not connect!\nError: ',err));
 
 app.get('/', (req, res) => {
     res.render('home.ejs',{
@@ -42,7 +42,22 @@ app.get('/signup', (req, res) => {
     res.render('signup.ejs',
     {
         isAuth:true,
-        title: ''
+        title: 'signup |'
+    })
+})
+
+
+app.get('/queue',(req,res)=>{
+    res.render('queue',{
+        isAuth:false,
+        title:"queue |"
+    })
+})
+
+app.get('/seeall',(req,res)=>{
+    res.render('seeall',{
+        isAuth:false,
+        title:"All songs |"
     })
 })
 

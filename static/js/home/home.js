@@ -137,8 +137,8 @@ async function P0P(){
 
 // for recommended songs
 
-async function recommend(){
-    const recommend_id = document.getElementById('recommend_id');
+async function songid(){
+    const recommend_id = document.getElementById('song_id');
     let html_data = '';
     
     await fetch("../../data/loop.json")
@@ -176,7 +176,7 @@ async function recommend(){
                     recommend_id.innerHTML = html_data;
          })
 
-}recommend();
+}songid();
 
 
 

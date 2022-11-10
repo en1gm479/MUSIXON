@@ -8,8 +8,8 @@ async function seeall(type){
     await fetch(`../../data/${type}.json`)
          .then((response1) => response1.json()
          ).then((data)=>{
-           console.log(data.data);
             for(let i=0;i<data.data.length;i++){
+              let id = `likedColor-${i}`;
                       let item = `
                       <tr>
                       <th scope="row">${i+1}.</th>
@@ -17,8 +17,9 @@ async function seeall(type){
                       <td>${data.data[i].songName}</td>
                       <td>${data.data[i].artistsName}</td>
                       <td>add to playlist</td>
-                      <td><i class="fa fa-heart-o" style="font-size:48px;color:red"></i></td>
-                      <td>${(data.data[i].time)/60000}:${((data.data[i].time)/1000)%60}</td>
+                      <td><a class="${id}" onclick="changeColor(this.className)"> <i class="fa fa-heart-o" style="font-size:26px;color:white"></i></a></td>
+                      <td>${Math.floor((data.data[i].time)/60000)}:${Math.floor(((data.data[i].time)/1000)%60)}</td>
+                    
                     </tr>` 
         
                       html_data+=item;
@@ -28,6 +29,26 @@ async function seeall(type){
          })
   
   }
-  // seeall();
-  
+
+function changeColor(x) {
+    console.log(x);
+    var liked = document.getElementsByClassName("fa-heart-o");
+    var likedColor = document.getElementsByClassName(`${x}`);
+    // likedColor[0].innerHTML = `<i class="fa fa-heart-o" style="font-size:26px;color:red"></i>`;
+    // console.log(likedColor[0]);
+
+    console.log(liked[0].outerHTML.match('white'));
+    // console.log(liked[0].innerHTML.match('white'));
+    if(liked[0].outerHTML.match('white')!=null) {
+      
+      likedColor[0].innerHTML = `<i class="fa fa-heart-o" style="font-size:26px;color:red"></i>`;
+    }
+    else {
+      likedColor[0].innerHTML = `<i class="fa fa-heart-o" style="font-size:26px;color:white"></i>`;
+    }
+}
+
+
+// changeColor(1)
+// seeall();
   

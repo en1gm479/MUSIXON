@@ -15,7 +15,7 @@ async function rock(){
                     <div class="card" style="width: 18rem;">
                         <img class="card-img-top" style="height: 12rem;" src=${data.data[x].Image_s} alt="Card image cap">
                         <div class="card-body">
-                        <h5 class="card-title"><a href="play_song/${data.data[x].id}">${data.data[x].songName}</a></h5>
+                        <h5 class="card-title"><a href='#' onclick=songtofooter("${data.data[x].id}")>${data.data[x].songName}</a></h5>
                           <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                           <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                         </div>
@@ -60,8 +60,8 @@ async function romance(){
                     <div class="card" style="width: 18rem;">
                         <img class="card-img-top" style="height: 12rem;" src=${data.data[x].Image_s} alt="Card image cap">
                         <div class="card-body">
-                        <h5 class="card-title"><a href="play_song/${data.data[x].id}">${data.data[x].songName}</a></h5>
-                          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                        <h5 class="card-title"><a href='#' onclick=songtofooter("${data.data[x].id}")>${data.data[x].songName}</a></h5>
+                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                           <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                         </div>
                       </div>
@@ -104,7 +104,7 @@ async function P0P(){
                     <div class="card" style="width: 18rem;">
                         <img class="card-img-top" style="height: 12rem;" src=${data.data[x].Image_s} alt="Card image cap">
                         <div class="card-body">
-                        <h5 class="card-title"><a href="/play_song/${data.data[x].id}">${data.data[x].songName}</a></h5>
+                        <h5 class="card-title"><a href='#' onclick=songtofooter("${data.data[x].id}")>${data.data[x].songName}</a></h5>
                           <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                           <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                         </div>
@@ -152,7 +152,7 @@ async function songid(){
                       <div class="card" style="width: 18rem;">
                           <img class="card-img-top" style="height: 12rem;" src=${data.data[x].Image_s} alt="Card image cap">
                           <div class="card-body">
-                          <h5 class="card-title"><a href="/play_song/${data.data[x].id}">${data.data[x].songName}</a></h5>
+                          <h5 class="card-title"><a href='#' onclick=songtofooter("${data.data[x].id}")>${data.data[x].songName}</a></h5>
                             <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                             <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                           </div>
@@ -177,6 +177,7 @@ async function songid(){
          })
 
 }songid();
+
 
 
 

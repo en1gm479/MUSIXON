@@ -1,4 +1,4 @@
-
+let lis = [];
 //for rock songs
 async function rock(){
   const rock_id = document.getElementById('rock_id');

@@ -52,7 +52,8 @@ app.get('/signup', (req, res) => {
 app.get('/queue',(req,res)=>{
     res.render('queue',{
         isAuth:false,
-        title:"queue |"
+        title:"queue |",
+        list: []
     })
 })
 

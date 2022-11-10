@@ -1,4 +1,4 @@
-let track_art = document.querySelector(".image_change");
+let track_art = document.getElementById("image_change");
 let track_name = document.querySelector(".song_name_fo");
 
 
@@ -10,44 +10,55 @@ let prev_btn = document.querySelector(".prev-track");
 let curr_track = document.createElement('audio');
 let track_index = 0;
 let isPlaying = false;
-
-let track_list = [
-    {
-        name: "Night Owl",
-        artist: "Broke For Free",
-        image: "Image URL",
-        path: "../../audio/High Rated Gabru (Guru Randhawa) DJ Abhi Remix.mp3",
-    },
-    {
-        name: "Enthusiast",
-        artist: "Tours",
-        image: "Image URL",
-        path: "../../audio/High Rated Gabru (Guru Randhawa) DJ Abhi Remix.mp3",
-    },
-    {
-        name: "Shipping Lanes",
-        artist: "Chad Crouch",
-        image: "Image URL",
-        path: "../../audio/High Rated Gabru (Guru Randhawa) DJ Abhi Remix.mp3",
-    },
-    ];
+let track_list = [];
+function check(){if(lis.length==0 && track_list.length == 0){
+    // console.log(lis);
+    track_list.push({
+        "id": "hardy0",
+        "artistsName": "Harrdy Sandhu",
+        "description": "This is Harrdy Sandhu. The essential tracks, all in one playlist.",
+        "songName": "Bijlee Bijlee",
+        "time": 168450,
+        "Image_s": "https://i.scdn.co/image/ab67616d0000b273b5a26cb2c2ef2fa440baffb0",
+        "Image_m": "https://i.scdn.co/image/ab67616d00001e02b5a26cb2c2ef2fa440baffb0",
+        "Image_l": "https://i.scdn.co/image/ab67616d00004851b5a26cb2c2ef2fa440baffb0"
+    })
+}else track_list = lis;
+}
+console.log(track_list)
+// let track_list = [
+//     {
+//         name: "Night Owl",
+//         artist: "Broke For Free",
+//         image: "Image URL",
+//         path: "../../audio/High Rated Gabru (Guru Randhawa) DJ Abhi Remix.mp3",
+//     },
+//     {
+//         name: "Enthusiast",
+//         artist: "Tours",
+//         image: "Image URL",
+//         path: "../../audio/High Rated Gabru (Guru Randhawa) DJ Abhi Remix.mp3",
+//     },
+//     {
+//         name: "Shipping Lanes",
+//         artist: "Chad Crouch",
+//         image: "Image URL",
+//         path: "../../audio/High Rated Gabru (Guru Randhawa) DJ Abhi Remix.mp3",
+//     },
+//     ];
 
 
 
     function load(track_index){
-        
+        check();
         // Load a new track
-        curr_track.src = track_list[track_index].path;
+        curr_track.src = "../../audio/High Rated Gabru (Guru Randhawa) DJ Abhi Remix.mp3";
         curr_track.load();
-        
-        // Update details of the track
-        // track_art.style.Image =
-        //     "/img/login-1.jpeg";
-        // track_name.textContent = track_list[track_index].name;
-
-        
+        track_art.innerHTML = `<img src="${track_list[track_index].Image_s}" width="50" height="50" alt="HELLO">`
+        track_name.textContent = track_list[track_index].songName;
         // Move to the next track if the current finishes playing
         // using the 'ended' event
+        
         curr_track.addEventListener("ended", nextTrack);
         
 }load(0);
@@ -56,12 +67,13 @@ let track_list = [
 function loadTrack(obje) {
     
     // Load a new track
-    curr_track.src = track_list[0].path;
+    curr_track.src = "../../audio/High Rated Gabru (Guru Randhawa) DJ Abhi Remix.mp3";
     curr_track.load();
     
    // Update details of the track
-    track_art.style.backgroundImage = "url(" +obje.Image_s + ")";
+    track_art.innerHTML = `<img src="${obje.Image_s}" width="50" height="50" alt="HELLO">`
     track_name.textContent = obje.songName;
+    playTrack();
     
     // Move to the next track if the current finishes playing
     // using the 'ended' event
@@ -96,6 +108,7 @@ function loadTrack(obje) {
         }
         
         function nextTrack() {
+            check();
         // Go back to the first track if the
         // current one is the last in the track list
         if (track_index < track_list.length - 1)
@@ -103,11 +116,12 @@ function loadTrack(obje) {
         else track_index = 0;
         console.log("mai kam kr rha hu");
         // Load and play the new track
-        loadTrack(track_index);
+        load(track_index);
         playTrack();
         }
         
         function prevTrack() {
+            check();
         // Go back to the last track if the
         // current one is the first in the track list
         if (track_index > 0)
@@ -115,7 +129,7 @@ function loadTrack(obje) {
         else track_index = track_list.length - 1;
         
         // Load and play the new track
-        loadTrack(track_index);
+        load(track_index);
         playTrack();
         }
 

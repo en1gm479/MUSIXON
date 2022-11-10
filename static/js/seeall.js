@@ -1,6 +1,9 @@
 // console.log(title);
 // let type = `<%=id%>`
 // console.log('<%=id%>')
+lis = []
+
+
 async function seeall(type){
     const seeall_id = document.getElementById('seeall_id');
     let html_data = '';
@@ -9,6 +12,8 @@ async function seeall(type){
          .then((response1) => response1.json()
          ).then((data)=>{
             for(let i=0;i<data.data.length;i++){
+              lis.push(data.data[i])
+
               let id = `likedColor-${i}`;
                       let item = `
                       <tr>
@@ -51,4 +56,5 @@ function changeColor(x) {
 
 // changeColor(1)
 // seeall();
+
   

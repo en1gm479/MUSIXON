@@ -6,6 +6,7 @@ search.addEventListener('input',async function() {
             // console.log(artistsName,songName);
             cardtxt = ele.songName.toLowerCase();
             cardart = ele.artistsName.toLowerCase();
+            console.log(cardtxt);
             if(cardtxt.includes(search.value.toLowerCase())){
                 console.log(ele.id);
                 let item = `<li href="player/${ele.id}">${ele.songName}</li>`

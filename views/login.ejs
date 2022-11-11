@@ -19,13 +19,19 @@
 
     <button type="submit" class="form-button btn btn-inv">Log In</button>
 
-    <small id="emailHelp" class="form-text text-muted">Don't have an account? <a href="/signup">Sign Up</a></small>
-    <small id="emailHelp" class="form-text text-muted">Login via google? <a href="/signup">Sign Up</a></small>
+    <small id="emailHelp" class="form-text text-muted">Don't have an account? <a href="/api/users/">Sign Up</a></small>
+    <small id="emailHelp" class="form-text text-muted">Login via google? <a href="/api/users/">Sign Up</a></small>
   </form>
 
   <img src="/img/login-1.jpeg" alt="" style="padding-right:30px;">
 
 </div>
+
+<script>
+  const Message = '<%=message%>'
+  if (Message != '')
+    alert(Message)
+</script>
 
 
 <%- include("footer") -%>

@@ -2,7 +2,15 @@ const router = require("express").Router();
 const { User, validate } = require("../models/user");
 const bcrypt = require("bcrypt");
 const auth = require("../middleware/auth");
-const validateObjectId = require("../middleware/validateObjectId");
+
+
+router.get('/',(req, res) => {
+	res.render('signup', {
+	  isAuth: req.session.isAuth,
+	  message: "",
+	  title: "Sign Up | "
+	})
+  })
 
 // create user
 router.post("/", async (req, res) => {
@@ -22,24 +30,10 @@ router.post("/", async (req, res) => {
 
 	newUser.password = undefined;
 	newUser.__v = undefined;
-	res.status(200).send({ data: newUser, message: "Account created successfully" });
-});
-
-
-// get user by id
-router.get("/:id", [validateObjectId, auth], async (req, res) => {
-	const user = await User.findById(req.params.id).select("-password -__v");
-	res.status(200).send({ data: user });
-});
-
-// update user by id
-router.put("/:id", [validateObjectId, auth], async (req, res) => {
-	const user = await User.findByIdAndUpdate(
-		req.params.id,
-		{ $set: req.body },
-		{ new: true }
-	).select("-password -__v");
-	res.status(200).send({ data: user, message: "Profile updated successfully" });
+	res.render('home',
+    {
+        title: "login |"
+    })
 });
 
 

@@ -25,7 +25,7 @@ function check(){if(lis.length==0 && track_list.length == 0){
     })
 }else track_list = lis;
 }
-console.log(track_list)
+// console.log(track_list)
 // let track_list = [
 //     {
 //         name: "Night Owl",

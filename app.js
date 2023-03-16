@@ -8,6 +8,7 @@ const authRoutes = require("./routes/auth");
 const auth = require("./middleware/auth");
 const bodyParser = require("body-parser")
 const session = require('express-session');
+const { User, validate } = require("./models/user");
 const mongoDbSession = require('connect-mongodb-session')(session)
 
 
@@ -54,9 +55,16 @@ const isAuth = function(req, res, next) {
     }
   }
 
-  ////////////////////////
 
+app.post('/addliked', async(req,res)=>{
+  likedSong=req.body.songC;
+  const user = await User.findByIdAndUpdate(req.session.user_id,{$push:{"likedSongs":likedSong}});
+})
 
+app.post('/rmvliked', async (req,res)=>{
+  removedSong = req.body.songC;
+  const user = await User.findByIdAndUpdate(req.session.user_id, {$pull: { "likedSongs": removedSong }});
+})
 
 app.get('/', isAuth,(req, res) => {
     res.render('home.ejs',{
@@ -66,23 +74,6 @@ app.get('/', isAuth,(req, res) => {
 
 app.use("/api/users/", userRoutes);
 app.use("/api/login/", authRoutes);
-
-// app.get('/login',(req, res) => {
-//     res.render('login
-
-//     {
-//         isAuth:true,
-//         title: "login |"
-//     })
-// })
-
-// app.get('/signup',(req, res) => {
-//     res.render('signup',
-//     {
-//         isAuth:true,
-//         title: 'signup |'
-//     })
-// })
 
 
 app.get('/queue',auth,(req,res)=>{
@@ -108,11 +99,15 @@ app.get('/dashboard',isAuth,(req,res)=>{
     })
 })
 
-app.get('/seeall/:id',isAuth,(req,res)=>{
+app.get('/seeall/:id',isAuth,async (req,res)=>{
+    const user = await User.findById(req.session.user_id);
+    // console.log(user.likedSongs);
+
     res.render('seeall',{
         isAuth:false,
         title:"All songs |",
-        id: req.params.id
+        id: req.params.id,
+        lkSongs : user.likedSongs
     })
 })
 
@@ -126,5 +121,5 @@ app.get('/logout', function(req, res) {
 
 
 
-const PORT = process.env.PORT || 4000   ;
+const PORT = process.env.PORT || 8000   ;
 app.listen(PORT,console.log(`Server running on http://localhost:${PORT}/`));

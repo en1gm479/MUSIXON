@@ -29,6 +29,8 @@ router.post("/", async (req, res) => {
 
   const token = user.generateAuthToken();
   req.session.isAuth = true;
+  req.session.user_id=user._id;
+  // console.log(user._id);
   
   res.redirect('/')
 });

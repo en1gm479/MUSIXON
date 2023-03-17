@@ -15,7 +15,7 @@ This project requires [node](http://nodejs.org) and [npm](https://npmjs.com) ins
 Clone the repository to a directory of your choosing
 
 ```sh
-$ git clone https://github.com/Himanshi2511/MUSIXON.git
+$ git clone https://github.com/en1gm479/MUSIXON.git
 ```
 Navigate into MUSIXON folder and install the necessary packages
 
